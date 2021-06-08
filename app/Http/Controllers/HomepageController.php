@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -13,7 +15,9 @@ class HomepageController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $sliders = Slider::with(['media'])->get();
+        $services = Service::limit(4)->get();
+        return view('welcome',compact('sliders','services'));
     }
 
     /**

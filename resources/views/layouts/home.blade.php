@@ -8,7 +8,7 @@
     <meta name="author" content="Denis">
     <title>
 
-        @yield('title') - {{ trans('panel.site_title') }}
+        @yield('title')  {{ trans('panel.site_title') }} || Our barbershop is the created for men who appreciate premium quality, time and flawless look.
 
     </title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/favicon.png')}}">
