@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Barber;
+use App\Models\Booking;
 use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -17,7 +19,15 @@ class HomepageController extends Controller
     {
         $sliders = Slider::with(['media'])->get();
         $services = Service::limit(4)->get();
-        return view('welcome',compact('sliders','services'));
+        $all_services = Service::all();
+        $barbers = Barber::with(['media'])->get();
+
+        return view('welcome',compact('sliders','services','all_services','barbers'));
+    }
+
+    public function addBooking(Request $request) {
+        $bookings = Booking::create($request->all());
+        return redirect()->back()->with("success","Your bookings has been received");
     }
 
     /**

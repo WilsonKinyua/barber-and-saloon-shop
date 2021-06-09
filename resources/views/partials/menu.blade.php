@@ -94,7 +94,7 @@
                             </a>
                         </li>
                     @endcan
-                    @can('review_access')
+                    {{-- @can('review_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.reviews.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/reviews") || request()->is("admin/reviews/*") ? "c-active" : "" }}">
                                 <i class="fa-fw fas fa-pencil-alt c-sidebar-nav-icon">
@@ -103,7 +103,7 @@
                                 {{ trans('cruds.review.title') }}
                             </a>
                         </li>
-                    @endcan
+                    @endcan --}}
                     @can('about_us_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.aboutuses.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/aboutuses") || request()->is("admin/aboutuses/*") ? "c-active" : "" }}">

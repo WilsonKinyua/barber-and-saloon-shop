@@ -18,7 +18,7 @@ class Booking extends Model
     public $table = 'bookings';
 
     protected $dates = [
-        'time',
+        // 'time',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -42,15 +42,15 @@ class Booking extends Model
         return $this->belongsTo(Service::class, 'service_id');
     }
 
-    public function getTimeAttribute($value)
-    {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
-    }
+    // public function getTimeAttribute($value)
+    // {
+    //     return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+    // }
 
-    public function setTimeAttribute($value)
-    {
-        $this->attributes['time'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
-    }
+    // public function setTimeAttribute($value)
+    // {
+    //     $this->attributes['time'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+    // }
 
     public function barber()
     {

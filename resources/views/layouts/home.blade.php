@@ -37,6 +37,10 @@
 
     <link rel="stylesheet" href="{{ asset('css/responsive.css')}}">
     <script src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js')}}"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    {{-- toastr --}}
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css')}}">
     @yield('style')
 </head>
 
@@ -177,6 +181,36 @@
     <script src="{{ asset('js/appointment.js')}}"></script>
 
     <script src="{{ asset('js/script.js')}}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="{{ asset('js/main.js')}}"></script>
+
+    {{-- notification --}}
+    <script src="{{ asset('js/toastr.min.js')}}"></script>
+
+    <script>
+        // Get the Toast button
+        var toastButton = document.getElementById("toast-btn");
+        // Get the Toast element
+        var toastElement = document.getElementsByClassName("toast")[0];
+        toastButton.onclick = function() {
+            $('.toast').toast('show');
+        }
+    </script>
+
+    <script>
+        @if (session()->has('success'))
+            toastr.success("{{session()->get('success')}}");
+        @endif
+        @if (session()->has('danger'))
+            toastr.warning("{{session()->get('danger')}}");
+        @endif
+        @if (session()->has('error'))
+            toastr.error("{{session()->get('error')}}");
+        @endif
+    </script>
+
 </body>
 
 
