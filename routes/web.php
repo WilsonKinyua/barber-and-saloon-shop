@@ -10,6 +10,8 @@ Route::post('/add/subscriber','HomepageController@addSubscriber')->name('add.sub
 
 Route::get('about-us','HomepageController@aboutUs')->name('about.us');
 
+Route::get('gallery','HomepageController@gallery')->name('view.gallery');
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));

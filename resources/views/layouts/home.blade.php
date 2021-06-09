@@ -65,9 +65,7 @@
                             </li>
                             <li><a href="{{ route('about.us') }}">About</a>
                             </li>
-                            <li><a href="#">Services</a>
-                            </li>
-                            <li><a href="#">Gallery</a>
+                            <li><a href="{{ route('view.gallery') }}">Gallery</a>
                             </li>
                             <li><a href="#">Blog</a>
                             </li>

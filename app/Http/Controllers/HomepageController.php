@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use App\Models\Barber;
 use App\Models\Blog;
 use App\Models\Booking;
+use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Subscriber;
@@ -44,5 +45,10 @@ class HomepageController extends Controller
         $all_services = Service::all();
         $barbers = Barber::with(['media'])->get();
         return view('about-us',compact('aboutus','all_services','barbers'));
+    }
+
+    public function gallery() {
+        $gallery = Gallery::with(['media'])->get();
+        return view('gallery',compact('gallery'));
     }
 }
