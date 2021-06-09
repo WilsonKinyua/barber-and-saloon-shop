@@ -234,21 +234,29 @@ Welcome to
             <h2>A Good Newspaper Is A <br> Nation Talking To Itself</h2>
         </div>
         <div class="row blog-wrap">
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="200ms">
-                <div class="blog-item">
-                    <div class="blog-thumb">
-                        <img src="img/post-1.jpg" alt="post">
-                        <span class="category"><a href="#">interior</a></span>
-                    </div>
-                    <div class="blog-content">
-                        <h3><a href="#">Minimalist trending in modern architecture 2019</a></h3>
-                        <p>Building first evolved out dynamics between needs means available building materials
-                            attendant skills.</p>
-                        <a href="#" class="read-more">Read More</a>
+            @foreach ($blogs as $blog)
+                <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="200ms">
+                    <div class="blog-item">
+                        <div class="blog-thumb">
+                            @if($blog->photo)
+                                    <img src="{{ $blog->photo->getUrl() }}">
+                            @endif
+                            {{-- <span class="category"><a href="#">interior</a></span>  --}}
+                        </div>
+                        <div class="blog-content">
+                            <h3>
+                                <a>
+                                    {{ $blog->title }}
+                                </a>
+                            </h3>
+                                {!! $blog->description !!}
+                            {{-- <a href="#" class="read-more">Read More</a> --}}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="300ms">
+            @endforeach
+
+            {{-- <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="300ms">
                 <div class="blog-item">
                     <div class="blog-thumb">
                         <img src="img/post-2.jpg" alt="post">
@@ -275,7 +283,8 @@ Welcome to
                         <a href="#" class="read-more">Read More</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+
         </div>
     </div>
 </section>
@@ -283,28 +292,28 @@ Welcome to
     <div class="container">
         <ul id="sponsor_carousel" class="sponsor_items owl-carousel">
             <li class="sponsor_item">
-                <img src="img/sponsor-1.png" alt="sponsor-image">
+                <img src="{{ asset('img/sponsor-1.png')}}" alt="sponsor-image">
             </li>
             <li class="sponsor_item">
-                <img src="img/sponsor-2.png" alt="sponsor-image">
+                <img src="{{ asset('img/sponsor-2.png')}}" alt="sponsor-image">
             </li>
             <li class="sponsor_item">
-                <img src="img/sponsor-3.png" alt="sponsor-image">
+                <img src="{{ asset('img/sponsor-3.png')}}" alt="sponsor-image">
             </li>
             <li class="sponsor_item">
-                <img src="img/sponsor-4.png" alt="sponsor-image">
+                <img src="{{ asset('img/sponsor-4.png')}}" alt="sponsor-image">
             </li>
             <li class="sponsor_item">
-                <img src="img/sponsor-5.png" alt="sponsor-image">
+                <img src="{{ asset('img/sponsor-5.png')}}" alt="sponsor-image">
             </li>
             <li class="sponsor_item">
-                <img src="img/sponsor-1.png" alt="sponsor-image">
+                <img src="{{ asset('img/sponsor-1.png')}}" alt="sponsor-image">
             </li>
             <li class="sponsor_item">
-                <img src="img/sponsor-2.png" alt="sponsor-image">
+                <img src="{{ asset('img/sponsor-2.png')}}" alt="sponsor-image">
             </li>
             <li class="sponsor_item">
-                <img src="img/sponsor-3.png" alt="sponsor-image">
+                <img src="{{ asset('img/sponsor-3.png')}}" alt="sponsor-image">
             </li>
         </ul>
     </div>

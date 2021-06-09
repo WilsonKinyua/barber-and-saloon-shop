@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barber;
+use App\Models\Blog;
 use App\Models\Booking;
 use App\Models\Service;
 use App\Models\Slider;
@@ -21,8 +22,9 @@ class HomepageController extends Controller
         $services = Service::limit(4)->get();
         $all_services = Service::all();
         $barbers = Barber::with(['media'])->get();
+        $blogs = Blog::with(['media'])->limit(3)->get();
 
-        return view('welcome',compact('sliders','services','all_services','barbers'));
+        return view('welcome',compact('sliders','services','all_services','barbers','blogs'));
     }
 
     public function addBooking(Request $request) {
