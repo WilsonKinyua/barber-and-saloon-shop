@@ -123,15 +123,11 @@
                     <div class="footer_widget">
                         <h3>Subscribe to our contents</h3>
                         <div class="subscribe_form">
-                            <form action="#" class="subscribe_form">
-                                <input type="email" name="email" id="subs-email" class="form_input"
+                            <form action="{{ route('add.sub') }}" class="subscribe_form" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="email" name="email" required id="subs-email" class="form_input"
                                     placeholder="Email Address...">
                                 <button type="submit" class="submit">SUBSCRIBE</button>
-                                <div class="clearfix"></div>
-                                <div id="subscribe-result">
-                                    <p class="subscription-success"></p>
-                                    <p class="subscription-error"></p>
-                                </div>
                             </form>
                         </div>
                     </div>

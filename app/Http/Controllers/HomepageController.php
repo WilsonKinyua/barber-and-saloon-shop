@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Booking;
 use App\Models\Service;
 use App\Models\Slider;
+use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -30,6 +31,11 @@ class HomepageController extends Controller
     public function addBooking(Request $request) {
         $bookings = Booking::create($request->all());
         return redirect()->back()->with("success","Your bookings has been received");
+    }
+
+    public function addSubscriber(Request $request) {
+        $sub = Subscriber::create($request->all());
+        return redirect()->back()->with("success","Email added to the email list");
     }
 
     /**
