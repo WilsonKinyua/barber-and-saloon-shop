@@ -8,6 +8,8 @@ Route::post('/book/add','HomepageController@addBooking')->name('bookings.add');
 
 Route::post('/add/subscriber','HomepageController@addSubscriber')->name('add.sub');
 
+Route::get('about-us','HomepageController@aboutUs')->name('about.us');
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));

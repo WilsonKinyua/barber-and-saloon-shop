@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUs;
 use App\Models\Barber;
 use App\Models\Blog;
 use App\Models\Booking;
@@ -38,69 +39,10 @@ class HomepageController extends Controller
         return redirect()->back()->with("success","Email added to the email list");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function aboutUs() {
+        $aboutus = AboutUs::orderBy('id','desc')->limit(1)->get();
+        $all_services = Service::all();
+        $barbers = Barber::with(['media'])->get();
+        return view('about-us',compact('aboutus','all_services','barbers'));
     }
 }

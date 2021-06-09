@@ -39,7 +39,7 @@ Welcome to
                         cut dress groom style and shave men's and boys' hair. A barber's place of work is known as a
                         "barbershop" or a "barber's". Barbershops are also places of social interaction and public
                         discourse. In some instances, barbershops are also public forums.</p>
-                    <a href="#" class="default_btn wow fadeInUp" data-wow-delay="600ms">More About Us</a>
+                    <a href="{{ route('about.us') }}" class="default_btn wow fadeInUp" data-wow-delay="600ms">More About Us</a>
                 </div>
             </div>
             <div class="col-md-6 d-none d-md-block">
