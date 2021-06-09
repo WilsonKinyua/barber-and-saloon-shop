@@ -72,9 +72,15 @@
                             <li><a href="{{ route('contact.us')}}">Contact Us</a></li>
                         </ul>
                     </div>
-                    {{-- <div class="header-btn">
-                        <a href="#" class="menu-btn">Make Appointment</a>
-                    </div> --}}
+                    @if (Auth::check())
+                    <div class="header-btn">
+                        <a href="{{ route('link.generate')}}" class="menu-btn">Generate Referral Link</a>
+                    </div>
+                    @else
+                    <div class="header-btn">
+                        <a href="{{ route('login') }}"  class="menu-btn">Login</a>
+                    </div>
+                    @endif
                 </div>
             </nav>
         </div>

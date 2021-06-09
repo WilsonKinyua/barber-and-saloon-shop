@@ -7,6 +7,7 @@ use App\Notifications\TwoFactorCodeNotification;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -28,7 +29,22 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+        public function redirectTo() {
+            $role = Auth::user()->roles;
+            switch ($role) {
+            case 'admin':
+                return '/home';
+                break;
+            case 'user':
+                return '/';
+                break;
+
+            default:
+                return '/';
+            break;
+            }
+        }
 
     /**
      * Create a new controller instance.

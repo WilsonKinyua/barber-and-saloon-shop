@@ -7,11 +7,14 @@ use App\Models\Barber;
 use App\Models\Blog;
 use App\Models\Booking;
 use App\Models\ContactUs;
+use App\Models\Discount;
 use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Slider;
 use App\Models\Subscriber;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class HomepageController extends Controller
 {
@@ -65,5 +68,28 @@ class HomepageController extends Controller
     public function contactAdd(Request $request) {
         $contact = ContactUs::create($request->all());
         return redirect()->back()->with("success","Message Sent successfully");
+    }
+
+    public function generateLink()  {
+        if(Auth::check()) {
+            $token = Str::random(10);
+
+            $data = [
+                "token" => $token,
+                "discount" => 0,
+                "customer_id" => Auth::user()->id
+            ];
+
+            $discount = Discount::where('customer_id','=',Auth::user()->id)->get();
+
+            if(count($discount) > 0) {
+                $discount = Discount::create($data);
+            } else {
+                return redirect()->back()->with('danger','Link generated already!!');
+            }
+
+        } else {
+            return redirect()->back();
+        }
     }
 }

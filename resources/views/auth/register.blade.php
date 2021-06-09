@@ -26,7 +26,32 @@
                             </div>
                         @endif
                     </div>
-
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-phone fa-fw"></i>
+                            </span>
+                        </div>
+                        <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="text" name="phone" id="phone" placeholder="Enter Phone" value="{{ old('phone', '') }}" required>
+                        @if($errors->has('phone'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('phone') }}
+                            </div>
+                        @endif
+                    </div>
+                    {{-- <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-phone fa-fw"></i>
+                            </span>
+                        </div>
+                        <input class="form-control date {{ $errors->has('date_of_birth') ? 'is-invalid' : '' }}" type="text" name="date_of_birth" id="date_of_birth" value="{{ old('date_of_birth') }}" required>
+                        @if($errors->has('date_of_birth'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('date_of_birth') }}
+                            </div>
+                        @endif
+                    </div> --}}
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">

@@ -18,6 +18,8 @@ Route::get('contact-us','HomepageController@contact')->name('contact.us');
 
 Route::post('contact/add','HomepageController@contactAdd')->name('contact.add');
 
+Route::get('generate/link','HomepageController@generateLink')->name('link.generate');
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
