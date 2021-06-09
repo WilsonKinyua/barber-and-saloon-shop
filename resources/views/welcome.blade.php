@@ -16,7 +16,7 @@ Welcome to
                     <div class="slider_content">
                         <h3>{{ $slider->caption }}</h3>
                         <h1>{!! $slider->title !!}</h1>
-                        <p>{{ $slider->description }}</p>
+                        <p>{!! $slider->description !!}</p>
                         {{-- <a href="#" class="default_btn">Make Appointment</a> --}}
                     </div>
                 </div>

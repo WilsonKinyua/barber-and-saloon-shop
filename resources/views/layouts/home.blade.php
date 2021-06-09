@@ -53,7 +53,7 @@
     <header id="header" class="header-section">
         <div class="container">
             <nav class="navbar ">
-                <a href="#" class="navbar-brand"><img src="img/logo.png" alt="Barbershop"></a>
+                <a href="/" class="navbar-brand"><img src="{{ asset('img/logo.png')}}" alt="Barbershop"></a>
                 <div class="d-flex menu-wrap align-items-center">
                     <div id="mainmenu" class="mainmenu">
                         <ul class="nav">
@@ -67,9 +67,9 @@
                             </li>
                             <li><a href="{{ route('view.gallery') }}">Gallery</a>
                             </li>
-                            <li><a href="#">Blog</a>
+                            <li><a href="{{ route('view.blog') }}">Blog</a>
                             </li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="{{ route('contact.us')}}">Contact Us</a></li>
                         </ul>
                     </div>
                     {{-- <div class="header-btn">

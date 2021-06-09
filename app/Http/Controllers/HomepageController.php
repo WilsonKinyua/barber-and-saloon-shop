@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use App\Models\Barber;
 use App\Models\Blog;
 use App\Models\Booking;
+use App\Models\ContactUs;
 use App\Models\Gallery;
 use App\Models\Service;
 use App\Models\Slider;
@@ -48,7 +49,21 @@ class HomepageController extends Controller
     }
 
     public function gallery() {
-        $gallery = Gallery::with(['media'])->get();
-        return view('gallery',compact('gallery'));
+        $galleries = Gallery::with(['media'])->get();
+        return view('gallery',compact('galleries'));
+    }
+
+    public function blog() {
+        $blogs = Blog::all();
+        return view('blogs',compact('blogs'));
+    }
+
+    public function contact() {
+        return view('contact-us');
+    }
+
+    public function contactAdd(Request $request) {
+        $contact = ContactUs::create($request->all());
+        return redirect()->back()->with("success","Message Sent successfully");
     }
 }

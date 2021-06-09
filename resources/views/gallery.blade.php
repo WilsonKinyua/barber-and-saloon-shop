@@ -26,8 +26,22 @@
             <li data-filter=".photo">Hair Color</li>
         </ul> --}}
         <ul class="portfolio_items row">
+            @foreach($galleries as $key => $gallery)
+                @foreach($gallery->photos as $key => $media)
 
-            @foreach ($gallery as $image)
+                    <li class="col-lg-3 col-md-3 padding-15 single_item branding">
+                        <figure class="portfolio_item">
+                            <img style="height: 200px;" src="{{ $media->getUrl() }}">
+                            <figcaption class="overlay">
+                                <a href="{{ $media->getUrl() }}" class="img_popup"></a>
+                            </figcaption>
+                        </figure>
+                    </li>
+
+                @endforeach
+            @endforeach
+
+            {{-- @foreach ($gallery as $image)
                 <li class="col-lg-6 col-md-6 padding-15 single_item branding">
                     <figure class="portfolio_item">
                         <img src="img/portfolio-1.jpg" alt="Portfolio Item">
@@ -36,7 +50,7 @@
                         </figcaption>
                     </figure>
                 </li>
-            @endforeach
+            @endforeach --}}
 
             {{-- <li class="col-lg-3 col-md-6 padding-15 single_item photo">
                 <figure class="portfolio_item">
