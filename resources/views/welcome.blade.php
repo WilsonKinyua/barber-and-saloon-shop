@@ -26,9 +26,22 @@ Welcome to
     </ul>
 </section>
 
+<style>
+    .tk {
+        width: auto;
+        text-align: center !important;
+        color: white;
+        font-size: 20px
+    }
+</style>
 
 <section id="about" class="about_section bd-bottom padding">
     <div class="container">
+
+        @if (Auth::check())
+            <p class="bg-danger tk"> {{ route('link.copy', $link)}}</p>
+        @endif
+
         <div class="row">
             <div class="col-md-6">
                 <div class="about_content align-center">

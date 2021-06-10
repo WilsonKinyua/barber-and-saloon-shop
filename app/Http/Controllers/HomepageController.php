@@ -31,7 +31,21 @@ class HomepageController extends Controller
         $barbers = Barber::with(['media'])->get();
         $blogs = Blog::with(['media'])->limit(3)->get();
 
-        return view('welcome',compact('sliders','services','all_services','barbers','blogs'));
+        if(Auth::check()) {
+            $customer = Discount::where('customer_id', '=', Auth::user()->id)->get();
+
+            if(count($customer) > 0) {
+                foreach($customer as $cust) {
+                    $link = $cust->token;
+                }
+            } else {
+                $link = 'invalid';
+            }
+        } else {
+            $link = 'invalid';
+        }
+
+        return view('welcome',compact('sliders','services','all_services','barbers','blogs','link'));
     }
 
     public function addBooking(Request $request) {
@@ -105,6 +119,8 @@ class HomepageController extends Controller
             } else {
                 return redirect()->route('home.page')->with('danger','Sorry. Invalid referral link!!');
             }
+        } else {
+            return redirect()->route('login');
         }
     }
 }
