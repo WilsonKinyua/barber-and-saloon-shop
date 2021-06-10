@@ -26,7 +26,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="input-group mb-3">
+                    {{-- <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
                                 <i class="fa fa-phone fa-fw"></i>
@@ -38,7 +38,7 @@
                                 {{ $errors->first('phone') }}
                             </div>
                         @endif
-                    </div>
+                    </div> --}}
                     {{-- <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">

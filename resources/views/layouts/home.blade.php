@@ -76,6 +76,9 @@
                     <div class="header-btn">
                         <a href="{{ route('link.generate')}}" class="menu-btn">Generate Referral Link</a>
                     </div>
+                    <div class="header-btn">
+                        <a href="{{ route('link.generate')}}" class="menu-btn">Copy Link</a>
+                    </div>
                     @else
                     <div class="header-btn">
                         <a href="{{ route('login') }}"  class="menu-btn">Login</a>

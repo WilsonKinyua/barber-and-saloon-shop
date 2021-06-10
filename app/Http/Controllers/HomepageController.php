@@ -74,22 +74,37 @@ class HomepageController extends Controller
         if(Auth::check()) {
             $token = Str::random(10);
 
-            $data = [
-                "token" => $token,
-                "discount" => 0,
-                "customer_id" => Auth::user()->id
-            ];
-
-            $discount = Discount::where('customer_id','=',Auth::user()->id)->get();
+            $discount = Discount::where('customer_id', '=', Auth::user()->id)->get();
 
             if(count($discount) > 0) {
-                $discount = Discount::create($data);
+                return redirect()->back()->with('danger','Link generated already!! Scroll Down to copy the link');
             } else {
-                return redirect()->back()->with('danger','Link generated already!!');
+                $data = [
+                    "token" => $token,
+                    "discount" => 0,
+                    "customer_id" => Auth::user()->id
+                ];
+                $discount = Discount::create($data);
+                return redirect()->back()->with('success','Link generated successfully!! Scroll Down to copy the link.');
             }
 
         } else {
             return redirect()->back();
+        }
+    }
+
+    public function linkCopy($token) {
+
+        if(Auth::check()) {
+            $customer_id = Discount::where('token', '=', $token)->get()->first();
+            // print_r(json_encode($customer_id));
+            if($customer_id != NULL) {
+                $customer_id->discount = $customer_id->discount + 1;
+                $customer_id->update();
+                return redirect()->route('home.page')->with("success",'Welcome to '. trans('panel.site_title') . ' .Please Login to enjoy our services.');
+            } else {
+                return redirect()->route('home.page')->with('danger','Sorry. Invalid referral link!!');
+            }
         }
     }
 }

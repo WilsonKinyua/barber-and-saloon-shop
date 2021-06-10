@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="{{ $settings2['column_class'] }}">
-                            <div class="card text-white bg-primary">
+                            <div class="card text-white bg-success">
                                 <div class="card-body pb-0">
                                     <div class="text-value">{{ number_format($settings2['total_number']) }}</div>
                                     <div>{{ $settings2['chart_title'] }}</div>
@@ -35,7 +35,7 @@
                             </div>
                         </div>
                         <div class="{{ $settings3['column_class'] }}">
-                            <div class="card text-white bg-primary">
+                            <div class="card text-white bg-danger">
                                 <div class="card-body pb-0">
                                     <div class="text-value">{{ number_format($settings3['total_number']) }}</div>
                                     <div>{{ $settings3['chart_title'] }}</div>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                         <div class="{{ $settings4['column_class'] }}">
-                            <div class="card text-white bg-primary">
+                            <div class="card text-white bg-info">
                                 <div class="card-body pb-0">
                                     <div class="text-value">{{ number_format($settings4['total_number']) }}</div>
                                     <div>{{ $settings4['chart_title'] }}</div>

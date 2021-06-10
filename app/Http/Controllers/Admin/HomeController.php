@@ -258,7 +258,7 @@ class HomeController
                 'token'                  => '',
                 'discount'               => '',
                 'customer'               => 'name',
-                'customer_date_of_birth' => 'date_of_birth',
+                // 'customer_date_of_birth' => 'date_of_birth',
             ],
             'translation_key' => 'discount',
         ];

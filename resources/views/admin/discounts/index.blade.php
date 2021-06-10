@@ -20,9 +20,9 @@
                         <th>
                             {{ trans('cruds.discount.fields.customer') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.discount.fields.customer_date_of_birth') }}
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('cruds.discount.fields.token') }}
                         </th>
@@ -46,9 +46,9 @@
                             <td>
                                 {{ $discount->customer->name ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $discount->customer_date_of_birth->date_of_birth ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $discount->token ?? '' }}
                             </td>
@@ -129,7 +129,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>
